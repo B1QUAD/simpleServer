@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<title>Game</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+    body,
+    h1 {
+        font-family: "Raleway", sans-serif
+    }
+
+    body,
+    html {
+        height: 100%
+    }
+
+    .bgimg {
+        background-image: url('lib/bkg.png');
+        min-height: 100%;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .center {
+        margin: 0;
+        position: absolute;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .log {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(8px);
+    }
+
+    .log p {
+        color: black;
+    }
+</style>
+
+<body>
+
+    <script id="game" src="/nshs/game.js"></script>
+
+    <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+        <div class="w3-display-topleft w3-padding-large w3-xlarge">
+            NSHS
+        </div>
+        <div class="w3-display-middle">
+            <h1 class="w3-jumbo w3-animate-top">Game Idea Generator:</h1>
+            <button id="gen-game-button" onclick="set_text()" class="center" type="button">Generate Game!</button>
+            <div class="log" id="log" style="margin-top: 50px"></div>
+        </div>
+        <div class="w3-display-bottomleft w3-padding-large">
+            Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

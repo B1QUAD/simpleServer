@@ -2,6 +2,7 @@ var http = require('http'); // Import Node.js core module
 var fs = require('fs');
 
 const hostDir = "hostDir";
+
 var server = http.createServer(function (req, res) {   //create web server
 
 
@@ -14,7 +15,7 @@ var server = http.createServer(function (req, res) {   //create web server
         if (true) {
 
                 try {
-                        res.writeHead(200, { 'Content-Type': 'text/html' }); 
+                        res.writeHead(200, { 'Content-Type': 'text/html' });
                         res.write(parseURL(req.url));
                         res.end();
                 } catch (e) {
@@ -37,7 +38,7 @@ function parseURL(url) {
                 // console.log("testing " + fs.readFile(hostDir + "index.html"));
                 return readF(hostDir + url + "index.html");
         } else {
-                return readF(hostDir + url + ".html");
+                return readF(hostDir + url);
         }
 }
 

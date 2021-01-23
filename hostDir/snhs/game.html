@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<title>Game</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+  body,
+  h1 {
+    font-family: "Raleway", sans-serif
+  }
+
+  body,
+  html {
+    height: 100%
+  }
+
+  /* Background blur based on  https://stackoverflow.com/a/38543010 by user Krono*/
+  body,
+  .log::before {
+    background: url('lib/bkg.png') 0 / cover fixed;
+    border-radius: 10px;
+  }
+
+  .log {
+    position: relative;
+    box-shadow: 5px 3px 30px black;
+    background: rgba(33, 33, 33, 0.3);
+    border-radius: 10px;
+  }
+
+  .log p {
+    margin: 15px;
+  }
+
+  .log::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    filter: blur(4px);
+    z-index: -1;
+  }
+
+
+  .bgimg {
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .center {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  .log p {
+    color: white;
+    font-size: 20px;
+  }
+</style>
+
+<body>
+
+  <script id="game" src="/snhs/game.js"></script>
+
+  <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+    <div class="w3-display-topleft w3-padding-large w3-xlarge">
+      NSHS - David Puma
+    </div>
+    <div class="w3-display-middle">
+      <h1 class="w3-jumbo w3-animate-top">Ideas Para Jugar en Línea:</h1>
+      <button id="gen-game-button" onclick="set_text()" class="center" type="button">Generar Una Idea!</button>
+      <div class="log" id="log" style="margin-top: 50px;"></div>
+    </div>
+    <div class="w3-display-bottomleft w3-padding-large">
+      Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
+    </div>
+  </div>
+  
+</body>
+
+</html>
