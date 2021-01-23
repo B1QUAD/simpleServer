@@ -1,6 +1,6 @@
 const http = require('http'); // Import Node.js core module
 const fs = require('fs');
-const detectCharacterEncoding = require('detect-character-encoding');
+const mime = require('mime');
 const hostDir = "hostDir";
 
 var server = http.createServer(function (req, res) {   //create web server
@@ -15,8 +15,9 @@ var server = http.createServer(function (req, res) {   //create web server
         if (true) {
 
                 try {
-                        res.writeHead(200, { 'Content-Type': 'text/html' });
-                        res.write(parseURL(req.url));
+                        let response = parseURL(req.url);
+                        res.writeHead(200, { 'Content-Type': response[1] });
+                        res.write(response[0]);
                         res.end();
                 } catch (e) {
                         res.writeHead(500);
@@ -46,8 +47,9 @@ function readF(input) {
         console.log("# Reading file: " + input);
         var content;
 
+        console.log("#$ Mime Lookup: " + mime.getType(input));
         content = fs.readFileSync(input);
-        return content;
+        return [content, mime.getType(input)];
 }
 
 server.listen(5000); //6 - listen for any incoming requests
